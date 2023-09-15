@@ -3,23 +3,18 @@ package com.keyur.pong.entities;
 import android.graphics.RectF;
 
 public class Ball {
-
-    // These are the member variables (fields)
-    // They all have the m prefix
-    // They are all private
-    // because direct access is not required
     private RectF mRect;
     private float mXVelocity;
     private float mYVelocity;
     private float mBallWidth;
     private float mBallHeight;
+    private static float velocityLevel = 1;
 
     // This is the constructor method.
     // It is called when by the code:
     //  mBall = new Ball(mScreenX);
     // In the PongGame class
-    public Ball(int screenX){
-
+    public Ball(int screenX) {
         // Make the ball square and 1% of screen width
         // of the screen width
         mBallWidth = screenX / 100;
@@ -41,7 +36,7 @@ public class Ball {
 
     // Update the ball position.
     // Called each frame/loop
-    public void update(long fps){
+    public void update(long fps) {
         // Move the ball based upon the
         // horizontal (mXVelocity) and
         // vertical(mYVelocity) speed
@@ -67,7 +62,7 @@ public class Ball {
         mXVelocity = -mXVelocity;
     }
 
-    public void reset(int x, int y){
+    public void reset(int x, int y) {
 
         // Initialise the four points of
         // the rectangle which defines the ball
@@ -84,16 +79,22 @@ public class Ball {
         mXVelocity = (y / 3);
     }
 
-    public void increaseVelocity(){
+    public void increaseVelocity() {
         // increase the speed by 10%
         mXVelocity = mXVelocity * 1.1f;
         mYVelocity = mYVelocity * 1.1f;
+        // Increase the velocity level by 10%
+        velocityLevel = velocityLevel * 1.1f;
     }
 
+    public float getVelocityLevel() {
+
+        return velocityLevel;
+    }
 
     // Bounce the ball back based upon
     // whether it hits the left or right hand side
-    public void batBounce(RectF batPosition){
+    public void batBounce(RectF batPosition) {
 
         // Detect center of bat
         float batCenter = batPosition.left +
@@ -107,13 +108,13 @@ public class Ball {
         float relativeIntersect = (batCenter - ballCenter);
 
         // Pick a bounce direction
-        if(relativeIntersect < 0){
+        if (relativeIntersect < 0) {
             // Go right
             mXVelocity = Math.abs(mXVelocity);
             // Math.abs is a static method that
             // strips any negative values from a value.
             // So -1 becomes 1 and 1 stays as 1
-        }else{
+        } else {
             // Go left
             mXVelocity = -Math.abs(mXVelocity);
         }

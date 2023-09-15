@@ -2,27 +2,18 @@ package com.keyur.pong.entities;
 
 import android.graphics.RectF;
 
-public class Bat {
+import com.keyur.pong.utils.GameConstants;
 
-    // These are the member variables (fields)
-    public static final int STOPPED = 0;
-    public static final int LEFT = 1;
-    public static final int RIGHT = 2;
-    // These are the member variables (fields)
-    // They all have the m prefix
-    // They are all private
-    // because direct access is not required
+public class Bat {
     private RectF mRect;
     private float mLength;
     private float mXCoord;
     private float mBatSpeed;
     private int mScreenX;
 
-    // Keeps track of if an how the ball is moving
-    // Starting with STOPPED
-    private int mBatMoving = STOPPED;
+    private int mBatMoving = GameConstants.STOPPED;
 
-    public Bat(int sx, int sy){
+    public Bat(int sx, int sy) {
 
         // Bat needs to know the screen
         // horizontal resolution
@@ -61,30 +52,29 @@ public class Bat {
 
     // Update the movement state passed
     // in by the onTouchEvent method
-    public void setMovementState(int state){
+    public void setMovementState(int state) {
         mBatMoving = state;
     }
 
-
     // Update the bat- Called each frame/loop
-    public void update(long fps){
+    public void update(long fps) {
 
         // Move the bat based on the mBatMoving variable
         // and the speed of the previous frame
-        if(mBatMoving == LEFT){
+        if (mBatMoving == GameConstants.LEFT) {
             mXCoord = mXCoord - mBatSpeed / fps;
         }
 
-        if(mBatMoving == RIGHT){
+        if (mBatMoving == GameConstants.RIGHT) {
             mXCoord = mXCoord + mBatSpeed / fps;
         }
 
         // Stop the bat going off the screen
-        if(mXCoord < 0){
+        if (mXCoord < 0) {
             mXCoord = 0;
         }
 
-        if(mXCoord + mLength > mScreenX){
+        if (mXCoord + mLength > mScreenX) {
             mXCoord = mScreenX - mLength;
         }
 
