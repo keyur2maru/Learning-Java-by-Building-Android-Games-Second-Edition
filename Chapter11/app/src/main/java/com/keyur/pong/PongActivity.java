@@ -1,8 +1,11 @@
 package com.keyur.pong;
+
 import android.app.Activity;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Display;
+
+import com.keyur.pong.PongGame;
 
 public class PongActivity extends Activity {
     private PongGame mPongGame;
@@ -22,16 +25,12 @@ public class PongActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        // More code here later in the chapter
         mPongGame.resume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
-        // More code here later in the chapter
         mPongGame.pause();
     }
 }
