@@ -1,9 +1,13 @@
-package com.keyur.pong;
+package com.keyur.pong.entities;
 
 import android.graphics.RectF;
 
-class Bat {
+public class Bat {
 
+    // These are the member variables (fields)
+    public static final int STOPPED = 0;
+    public static final int LEFT = 1;
+    public static final int RIGHT = 2;
     // These are the member variables (fields)
     // They all have the m prefix
     // They are all private
@@ -14,20 +18,11 @@ class Bat {
     private float mBatSpeed;
     private int mScreenX;
 
-    // These variables are public and final
-    // They can be directly accessed by
-    // the instance (in PongGame)
-    // because they are part of the same
-    // package but cannot be changed
-    final int STOPPED = 0;
-    final int LEFT = 1;
-    final int RIGHT = 2;
-
     // Keeps track of if an how the ball is moving
     // Starting with STOPPED
     private int mBatMoving = STOPPED;
 
-    Bat(int sx, int sy){
+    public Bat(int sx, int sy){
 
         // Bat needs to know the screen
         // horizontal resolution
@@ -60,19 +55,19 @@ class Bat {
     }
 
     // Return a reference to the mRect object
-    RectF getRect(){
+    public RectF getRect(){
         return mRect;
     }
 
     // Update the movement state passed
     // in by the onTouchEvent method
-    void setMovementState(int state){
+    public void setMovementState(int state){
         mBatMoving = state;
     }
 
 
     // Update the bat- Called each frame/loop
-    void update(long fps){
+    public void update(long fps){
 
         // Move the bat based on the mBatMoving variable
         // and the speed of the previous frame

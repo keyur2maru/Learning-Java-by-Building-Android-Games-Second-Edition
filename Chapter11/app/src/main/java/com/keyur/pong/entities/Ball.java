@@ -1,8 +1,8 @@
-package com.keyur.pong;
+package com.keyur.pong.entities;
 
 import android.graphics.RectF;
 
-class Ball {
+public class Ball {
 
     // These are the member variables (fields)
     // They all have the m prefix
@@ -18,7 +18,7 @@ class Ball {
     // It is called when by the code:
     //  mBall = new Ball(mScreenX);
     // In the PongGame class
-    Ball(int screenX){
+    public Ball(int screenX){
 
         // Make the ball square and 1% of screen width
         // of the screen width
@@ -35,13 +35,13 @@ class Ball {
 
 
     // Return a reference to mRect to PongGame
-    RectF getRect(){
+    public RectF getRect(){
         return mRect;
     }
 
     // Update the ball position.
     // Called each frame/loop
-    void update(long fps){
+    public void update(long fps){
         // Move the ball based upon the
         // horizontal (mXVelocity) and
         // vertical(mYVelocity) speed
@@ -58,16 +58,16 @@ class Ball {
     }
 
     // Reverse the vertical direction of travel
-    void reverseYVelocity(){
+    public void reverseYVelocity(){
         mYVelocity = -mYVelocity;
     }
 
     // Reverse the horizontal direction of travel
-    void reverseXVelocity(){
+    public void reverseXVelocity(){
         mXVelocity = -mXVelocity;
     }
 
-    void reset(int x, int y){
+    public void reset(int x, int y){
 
         // Initialise the four points of
         // the rectangle which defines the ball
@@ -84,7 +84,7 @@ class Ball {
         mXVelocity = (y / 3);
     }
 
-    void increaseVelocity(){
+    public void increaseVelocity(){
         // increase the speed by 10%
         mXVelocity = mXVelocity * 1.1f;
         mYVelocity = mYVelocity * 1.1f;
@@ -93,7 +93,7 @@ class Ball {
 
     // Bounce the ball back based upon
     // whether it hits the left or right hand side
-    void batBounce(RectF batPosition){
+    public void batBounce(RectF batPosition){
 
         // Detect center of bat
         float batCenter = batPosition.left +

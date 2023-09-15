@@ -16,6 +16,9 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import com.keyur.pong.entities.Ball;
+import com.keyur.pong.entities.Bat;
+
 import java.io.IOException;
 
 class PongGame extends SurfaceView implements Runnable{
