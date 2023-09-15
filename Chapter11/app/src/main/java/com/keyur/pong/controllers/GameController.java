@@ -77,7 +77,7 @@ public class GameController {
             mBall.batBounce(mBat.getRect());
             mBall.increaseVelocity();
             mScore.increaseScore();
-            soundPlayer.play(1); // 1 - mBeepID
+            soundPlayer.play(GameConstants.BEEP);
         }
 
         // Has the ball hit the edge of the screen
@@ -86,7 +86,7 @@ public class GameController {
             mBall.reverseYVelocity();
 
             mScore.loseLife();
-            soundPlayer.play(2); // 2 - mMissID
+            soundPlayer.play(GameConstants.MISS);
 
             if (mScore.getLives() == 0 && gameEventListener != null) {
                 gameEventListener.onGameOver();
@@ -96,19 +96,19 @@ public class GameController {
         // Top
         if (mBall.getRect().top < 0) {
             mBall.reverseYVelocity();
-            soundPlayer.play(3); // 3 - mBoopID
+            soundPlayer.play(GameConstants.BOOP);
         }
 
         // Left
         if (mBall.getRect().left < 0) {
             mBall.reverseXVelocity();
-            soundPlayer.play(4); // 4 - mBopID
+            soundPlayer.play(GameConstants.BOP);
         }
 
         // Right
         if (mBall.getRect().right > mScreenX) {
             mBall.reverseXVelocity();
-            soundPlayer.play(4); // 4 - mBopID
+            soundPlayer.play(GameConstants.BOP);
         }
     }
     public void setBatMovementState(int state) {
