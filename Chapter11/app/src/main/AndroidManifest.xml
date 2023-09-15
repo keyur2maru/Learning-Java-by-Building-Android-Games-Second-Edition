@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pong"
         tools:targetApi="31" >
+
         <activity android:name=".PongActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="landscape"

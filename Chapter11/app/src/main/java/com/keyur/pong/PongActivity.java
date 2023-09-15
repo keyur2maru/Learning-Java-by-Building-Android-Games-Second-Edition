@@ -1,5 +1,4 @@
-package com.gamecodeschool.c11pong;
-
+package com.keyur.pong;
 import android.app.Activity;
 import android.graphics.Point;
 import android.os.Bundle;

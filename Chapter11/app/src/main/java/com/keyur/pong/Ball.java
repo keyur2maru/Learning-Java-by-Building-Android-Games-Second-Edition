@@ -1,4 +1,4 @@
-package com.gamecodeschool.c11pong;
+package com.keyur.pong;
 
 import android.graphics.RectF;
 
