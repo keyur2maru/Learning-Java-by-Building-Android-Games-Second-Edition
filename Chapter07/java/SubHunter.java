@@ -206,12 +206,12 @@ public class SubHunter extends Activity {
         // distance travelled in a straight line
         distanceFromSub = (int)Math.sqrt(
                 ((horizontalGap * horizontalGap) +
-                (verticalGap * verticalGap)));
+                        (verticalGap * verticalGap)));
 
         // If there is a hit call boom
         if(hit)
             boom();
-        // Otherwise call draw as usual
+            // Otherwise call draw as usual
         else draw();
     }
 
