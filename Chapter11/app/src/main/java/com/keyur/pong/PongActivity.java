@@ -5,8 +5,6 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Display;
 
-import com.keyur.pong.PongGame;
-
 public class PongActivity extends Activity {
     private PongGame mPongGame;
 
